@@ -44,7 +44,7 @@ class AddTodoScreen extends StatelessWidget {
                       description: controllerDescription.text,
                     );
                     context.read<TodosBloc>().add(
-                          AddTodos(todo: todo),
+                          AddTodo(todo: todo),
                         );
                     Navigator.pop(context);
                   },

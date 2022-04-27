@@ -8,9 +8,9 @@ part 'todos_state.dart';
 class TodosBloc extends Bloc<TodosEvent, TodosState> {
   TodosBloc() : super(TodosLoading()) {
     on<LoadTodos>(_onLoadTodos);
-    on<AddTodos>(_onAddTodo);
-    on<UpdateTodos>(_onUpdateTodo);
-    on<DeleteTodos>(_onDeleteTodo);
+    on<AddTodo>(_onAddTodo);
+    on<UpdateTodo>(_onUpdateTodo);
+    on<DeleteTodo>(_onDeleteTodo);
   }
 
   void _onLoadTodos(LoadTodos event, Emitter<TodosState> emit) {
@@ -19,7 +19,7 @@ class TodosBloc extends Bloc<TodosEvent, TodosState> {
     );
   }
 
-  void _onAddTodo(AddTodos event, Emitter<TodosState> emit) {
+  void _onAddTodo(AddTodo event, Emitter<TodosState> emit) {
     final state = this.state;
 
     if (state is TodosLoaded) {
@@ -31,7 +31,7 @@ class TodosBloc extends Bloc<TodosEvent, TodosState> {
     }
   }
 
-  void _onUpdateTodo(UpdateTodos event, Emitter<TodosState> emit) {
+  void _onUpdateTodo(UpdateTodo event, Emitter<TodosState> emit) {
     final state = this.state;
 
     if (state is TodosLoaded) {
@@ -42,7 +42,7 @@ class TodosBloc extends Bloc<TodosEvent, TodosState> {
     }
   }
 
-  void _onDeleteTodo(DeleteTodos event, Emitter<TodosState> emit) {
+  void _onDeleteTodo(DeleteTodo event, Emitter<TodosState> emit) {
     final state = this.state;
     if (state is TodosLoaded) {
       List<Todo> todos = state.todos.where((todo) {
