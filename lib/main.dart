@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           color:  Color(0xFF000A1F),
         ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            primary: const Color(0xFF000A1F)
-          )
-        )
+        // elevatedButtonTheme: ElevatedButtonThemeData(
+        //   style: ElevatedButton.styleFrom(
+        //     primary: const Color(0xFF000A1F)
+        //   )
+        // )
       ),
       home: const HomeScreen(),
     );

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_bloc/components.dart';
+import 'package:todo_bloc/models/todos_model.dart';
 
 class AddTodoScreen extends StatelessWidget {
   const AddTodoScreen({Key? key}) : super(key: key);
@@ -18,17 +20,44 @@ class AddTodoScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Text('data'),
-              Text('data'),
-              Text('data'),
+              _inputField('ID', controllerId),
+              _inputField('Task', controllerTask),
+              _inputField('Description', controllerDescription),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  var todo = Todo(
+                    id: controllerId.text,
+                    task: controllerTask.text,
+                    description: controllerDescription.text,
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Theme.of(context).primaryColor),
                 child: const Text('Add To Do'),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Column _inputField(String field, TextEditingController controller) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '$field: ',
+          style: kTextStyle,
+        ),
+        Container(
+            height: 50,
+            margin: const EdgeInsets.only(bottom: 8.0),
+            width: double.infinity,
+            child: TextFormField(
+              controller: controller,
+            ))
+      ],
     );
   }
 }
