@@ -91,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     context.read<TodosBloc>().add(
-                          UpdateTodo(
+                          UpdateTodos(
                             todo: todo.copyWith(isCompleted: true),
                           ),
                         );
@@ -101,7 +101,7 @@ class HomeScreen extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     context.read<TodosBloc>().add(
-                          DeleteTodo(todo: todo),
+                          DeleteTodos(todo: todo),
                         );
                   },
                   icon: const Icon(Icons.cancel),

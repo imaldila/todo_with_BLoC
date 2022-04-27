@@ -16,28 +16,28 @@ class LoadTodos extends TodosEvent {
   List<Object> get props => [todos];
 }
 
-class AddTodo extends TodosEvent {
+class AddTodos extends TodosEvent {
   final Todo todo;
 
-  const AddTodo({required this.todo});
+  const AddTodos({required this.todo});
 
   @override
   List<Object> get props => [todo];
 }
 
-class UpdateTodo extends TodosEvent {
+class UpdateTodos extends TodosEvent {
   final Todo todo;
 
-  const UpdateTodo({required this.todo});
+  const UpdateTodos({required this.todo});
 
   @override
   List<Object> get props => [todo];
 }
 
-class DeleteTodo extends TodosEvent {
+class DeleteTodos extends TodosEvent {
   final Todo todo;
 
-  const DeleteTodo({required this.todo});
+  const DeleteTodos({required this.todo});
 
   @override
   List<Object> get props => [todo];

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc/blocs/todos/todos_bloc.dart';
+import 'package:todo_bloc/blocs/todos_filter/todos_filter_bloc.dart';
 
 import 'models/todos_model.dart';
 import 'screens/home_screen/home_screen.dart';
@@ -17,19 +18,29 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) => TodosBloc()
-              ..add(LoadTodos(todos: [
-                Todo(
-                  id: '1',
-                  task: 'Sample To Do 1',
-                  description: 'This is todo Test 1',
-                ),
-                Todo(
-                  id: '2',
-                  task: 'Sample To Do 2',
-                  description: 'This is todo Test 2',
-                ),
-              ]))),
+          create: (context) => TodosBloc()
+            ..add(
+              LoadTodos(
+                todos: [
+                  Todo(
+                    id: '1',
+                    task: 'Sample To Do 1',
+                    description: 'This is todo Test 1',
+                  ),
+                  Todo(
+                    id: '2',
+                    task: 'Sample To Do 2',
+                    description: 'This is todo Test 2',
+                  ),
+                ],
+              ),
+            ),
+        ),
+        BlocProvider(
+          create: (context) => TodosFilterBloc(
+            todosBloc: BlocProvider.of<TodosBloc>(context),
+          ),
+        )
       ],
       child: MaterialApp(
         title: 'BloC Pattern - Todos',
